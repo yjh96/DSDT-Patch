@@ -1,0 +1,43 @@
+#Maintaind by : yjh96 for : Laptop Patch
+#Battery_LG_15ND540.txt
+
+# Created By yjh96 2018-01-03
+
+#Works for
+# 15ND540, 15N540 model
+
+into device label CMB0 insert
+begin
+Method (RBMF, 0, Serialized)
+{\n
+ Name (TEMP, Buffer (0x09) {})\n
+Store (BM00, Index (TEMP, Zero))\n
+Store (BM01, Index (TEMP, One))\n
+Store (BM02, Index (TEMP, 0x02))\n
+Store (BM03, Index (TEMP, 0x03))\n
+Store (BM04, Index (TEMP, 0x04))\n
+Store (BM05, Index (TEMP, 0x05))\n
+Store (BM06, Index (TEMP, 0x06))\n
+Store (BM07, Index (TEMP, 0x07))\n
+Store (BM08, Index (TEMP, 0x08))\n
+Return (TEMP)\n
+}
+end;
+
+into device label EC code_regex BMFG replace_matched
+begin
+                        BM01, 8,\n
+                        BM02, 8,\n
+                        BM03, 8,\n
+                        BM04, 8,\n
+                        BM05, 8,\n
+                        BM06, 8,\n
+                        BM07, 8,\n
+                        BM08, 
+end;
+
+
+into device label EC code_regex 72, replace_matched
+begin
+8, 
+end;
