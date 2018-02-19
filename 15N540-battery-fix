@@ -26,18 +26,25 @@ end;
 
 into device label EC code_regex BMFG replace_matched
 begin
-                        BM01, 8,\n
-                        BM02, 8,\n
-                        BM03, 8,\n
-                        BM04, 8,\n
-                        BM05, 8,\n
-                        BM06, 8,\n
-                        BM07, 8,\n
-                        BM08, 
+BM00,   8,\n
+                        BM01,   8,\n
+                        BM02,   8,\n
+                        BM03,   8,\n
+                        BM04,   8,\n
+                        BM05,   8,\n
+                        BM06,   8,\n
+                        BM07,   8,\n
+                        BM08
 end;
 
 
 into device label EC code_regex 72, replace_matched
 begin
-8, 
+8,
 end;
+
+into method label XBIF code_regex BMFG, replace_matched
+begin
+RBMF(),
+end;
+//EOF
